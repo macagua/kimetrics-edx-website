@@ -1,3 +1,3 @@
 # kimetrics-edx-website
 
-Configuraciones del sitio de edx para kimetrics.com
+Repositorio **Temporal** de diversas configuraciones del sitio de open edx para kimetrics.com

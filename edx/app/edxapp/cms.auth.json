@@ -62,8 +62,8 @@
         "port": 27017, 
         "user": "edxapp"
     }, 
-    "EMAIL_HOST_PASSWORD": "", 
-    "EMAIL_HOST_USER": "", 
+    "EMAIL_HOST_PASSWORD": "erik_river",
+    "EMAIL_HOST_USER": "Kpfp7eLt",
     "GOOGLE_ANALYTICS_ACCOUNT": null, 
     "MODULESTORE": {
         "default": {

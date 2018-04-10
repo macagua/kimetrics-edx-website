@@ -1,0 +1,252 @@
+---
+# vars organization
+##############################
+# 1. global Open edX settings
+# 2. Email settings
+# 3. API Keys, passwords, and socialmedia
+# 4. DB users/passwords
+# 5. Nginx and server resources
+##############################
+
+########## 1. global Open edX settings ##########
+
+COMMON_ENVIRONMENT: 'default_env'
+COMMON_DEPLOYMENT: 'default_deployment'
+
+EDXAPP_LMS_BASE: "ec2-54-152-79-203.compute-1.amazonaws.com"
+EDXAPP_PREVIEW_LMS_BASE: ""
+EDXAPP_CMS_BASE: "localhost:18010"
+
+EDXAPP_LANGUAGE_CODE: 'es-419'
+EDXAPP_TIME_ZONE: 'America/Mexico_City'
+
+EDXAPP_PLATFORM_NAME: 'Kimetrics - Smart field management - Cursos en linea'
+EDXAPP_STUDIO_NAME: 'Studio'
+EDXAPP_STUDIO_SHORT_NAME: 'Studio'
+
+EDXAPP_FEATURES:
+  AUTH_USE_OPENID_PROVIDER: true
+  CERTIFICATES_ENABLED: true
+  ENABLE_DISCUSSION_SERVICE: true
+  ENABLE_INSTRUCTOR_ANALYTICS: false
+  PREVIEW_LMS_BASE: "{{ EDXAPP_PREVIEW_LMS_BASE }}"
+  ENABLE_S3_GRADE_DOWNLOADS: true
+  USE_CUSTOM_THEME: "{{ edxapp_use_custom_theme }}"
+  ENABLE_MKTG_SITE: "{{ EDXAPP_ENABLE_MKTG_SITE }}"
+  AUTOMATIC_AUTH_FOR_TESTING: "{{ EDXAPP_ENABLE_AUTO_AUTH }}"
+  ENABLE_THIRD_PARTY_AUTH: "{{ EDXAPP_ENABLE_THIRD_PARTY_AUTH }}"
+  ENABLE_VIDEO_UPLOAD_PIPELINE: false
+  ENABLE_DISCUSSION_HOME_PANEL: true
+  ENABLE_COMBINED_LOGIN_REGISTRATION: true
+  ENABLE_CORS_HEADERS: false
+  ENABLE_CROSS_DOMAIN_CSRF_COOKIE: false
+  ENABLE_COUNTRY_ACCESS: false
+  ENABLE_VIDEO_BEACON: false
+  ENABLE_ONLOAD_BEACON: false
+  ENABLE_EDXNOTES: "{{ EDXAPP_ENABLE_EDXNOTES }}"
+  ENABLE_CREDIT_API: "{{ EDXAPP_ENABLE_CREDIT_API }}"
+  ENABLE_CREDIT_ELIGIBILITY: "{{ EDXAPP_ENABLE_CREDIT_ELIGIBILITY }}"
+  ENABLE_SPECIAL_EXAMS: false
+
+EDXAPP_ENABLE_MKTG_SITE: false
+EDXAPP_MKTG_URL_LINK_MAP: {}
+EDXAPP_MKTG_URLS: {}
+EDXAPP_SUPPORT_SITE_LINK: ''
+
+# Settings for Grade downloads
+EDXAPP_GRADE_STORAGE_TYPE: 'localfs'
+EDXAPP_GRADE_BUCKET: 'edx-grades'
+EDXAPP_GRADE_ROOT_PATH: '/tmp/edx-s3/grades'
+
+EDXAPP_USE_GIT_IDENTITY: false
+# Paste the contents of the git identity
+# into this var
+#EDXAPP_GIT_IDENTITY: !!null
+
+
+# List of additional python packages that should be installed into the
+# edxapp virtual environment.
+# `name` (required), `version` (optional), and `extra_args` (optional)
+# are supported and correspond to the options of ansible's pip module.
+# Example:
+# EDXAPP_EXTRA_REQUIREMENTS:
+#   - name: mypackage
+#     version: 1.0.1
+#   - name: git+https://git.myproject.org/MyProject#egg=MyProject
+EDXAPP_EXTRA_REQUIREMENTS: []
+
+# If using microsites this should point to the microsite repo
+EDXAPP_MICROSITE_ROOT_DIR: "{{ edxapp_app_dir }}/edx-microsite"
+# this dictionary defines what microsites are configured
+EDXAPP_MICROSITE_CONFIGURATION: {}
+
+EDXAPP_AWS_STORAGE_BUCKET_NAME: 'edxuploads'
+EDXAPP_FILE_UPLOAD_STORAGE_PREFIX: 'submissions_attachments'
+
+# Dashboard URL, assumes that the insights role is installed locally
+EDXAPP_ANALYTICS_DASHBOARD_URL: ""
+
+EDXAPP_REGISTRATION_EXTRA_FIELDS:
+  level_of_education: "optional"
+  gender: "optional"
+  year_of_birth: "optional"
+  mailing_address: "optional"
+  goals: "optional"
+  honor_code: "required"
+  city: "hidden"
+  country: "hidden"
+
+# Comprehensive Theming
+EDXAPP_COMPREHENSIVE_THEME_DIR: ""
+
+########## 2. start Email settings ##########
+EDXAPP_EMAIL_BACKEND: 'django.core.mail.backends.smtp.EmailBackend'
+EDXAPP_EMAIL_HOST: 'smtp.sendgrid.net'
+EDXAPP_EMAIL_PORT: 587
+EDXAPP_EMAIL_USE_TLS: False
+EDXAPP_EMAIL_HOST_USER: 'erik_river'
+EDXAPP_EMAIL_HOST_PASSWORD: 'Kpfp7eLt'
+
+EDXAPP_PAYMENT_SUPPORT_EMAIL: "pagos@kimetrics.com"
+EDXAPP_FEEDBACK_SUBMISSION_EMAIL: ""
+EDXAPP_TECH_SUPPORT_EMAIL: 'soporte@kimetrics.com'
+EDXAPP_CONTACT_EMAIL: 'info@kimetrics.com'
+EDXAPP_BUGS_EMAIL: 'fallas@kimetrics.com'
+EDXAPP_DEFAULT_FROM_EMAIL: 'registro@kimetrics.com'
+EDXAPP_DEFAULT_FEEDBACK_EMAIL: 'feedback@kimetrics.com'
+EDXAPP_DEFAULT_SERVER_EMAIL: 'devops@example.com'
+EDXAPP_BULK_EMAIL_DEFAULT_FROM_EMAIL: 'no-responder@kimetrics.com'
+EDXAPP_BULK_EMAIL_LOG_SENT_EMAILS: false
+EDXAPP_UNIVERSITY_EMAIL: 'academia@kimetrics.com'
+EDXAPP_PRESS_EMAIL: 'prensa@kimetrics.com'
+
+########## end email settings ##########
+
+########## 3. start API Keys, passwords, and socialmedia ##########
+
+EDXAPP_AWS_ACCESS_KEY_ID:  "None"
+EDXAPP_AWS_SECRET_ACCESS_KEY:  "None"
+
+EDXAPP_COMMENTS_SERVICE_KEY:  'password'
+
+EDXAPP_EDXAPP_SECRET_KEY: "DUMMY KEY CHANGE BEFORE GOING TO PRODUCTION"
+
+EDXAPP_YOUTUBE_API_KEY: "PUT_YOUR_API_KEY_HERE"
+
+EDXAPP_ZENDESK_USER: ""
+EDXAPP_ZENDESK_URL: ""
+EDXAPP_ZENDESK_API_KEY: ""
+EDXAPP_CELERY_USER: 'celery'
+EDXAPP_CELERY_PASSWORD: 'celery'
+EDXAPP_CELERY_BROKER_VHOST: ""
+
+EDXAPP_OPTIMIZELY_PROJECT_ID: "None"
+EDXAPP_TRACKING_SEGMENTIO_WEBHOOK_SECRET: ""
+EDXAPP_CMS_SEGMENT_KEY: "None"
+EDXAPP_LMS_SEGMENT_KEY: "None"
+EDXAPP_EVENT_TRACKING_SEGMENTIO_EMIT_WHITELIST: []
+
+EDXAPP_EDX_API_KEY: "PUT_YOUR_API_KEY_HERE"
+# used to salt hashed usernames for profile image filenames
+EDXAPP_PROFILE_IMAGE_SECRET_KEY: placeholder_secret_key
+
+# SAML KEYS
+EDXAPP_SOCIAL_AUTH_SAML_SP_PRIVATE_KEY: ''
+EDXAPP_SOCIAL_AUTH_SAML_SP_PUBLIC_CERT: ''
+
+EDXAPP_PLATFORM_TWITTER_ACCOUNT: '@erik_river'
+EDXAPP_PLATFORM_FACEBOOK_ACCOUNT: 'https://www.facebook.com/kimetrics/'
+EDXAPP_FACEBOOK_APP_ID: "FACEBOOK_APP_ID"
+EDXAPP_FACEBOOK_APP_SECRET: "FACEBOOK_APP_SECRET"
+EDXAPP_FACEBOOK_API_VERSION: "v2.1"
+
+########## end API Keys, passwords, and socialmedia ##########
+
+########## 4. start DB users/passwords ##########
+
+COMMON_MYSQL_READ_ONLY_USER: 'read_only'
+COMMON_MYSQL_READ_ONLY_PASS: 'password'
+COMMON_MYSQL_ADMIN_USER: 'admin'
+COMMON_MYSQL_ADMIN_PASS: 'password'
+COMMON_MYSQL_MIGRATE_USER: 'migrate'
+COMMON_MYSQL_MIGRATE_PASS: 'password'
+
+COMMON_MONGO_READ_ONLY_USER: 'read_only'
+COMMON_MONGO_READ_ONLY_PASS: !!null
+COMMON_ENABLE_DATADOG: False
+COMMON_ENABLE_NGINXTRA: False
+COMMON_ENABLE_SPLUNKFORWARDER: False
+COMMON_ENABLE_NEWRELIC: False
+
+EDXAPP_MONGO_PASSWORD: 'password'
+EDXAPP_MONGO_USER: 'edxapp'
+EDXAPP_MONGO_DB_NAME: 'edxapp'
+EDXAPP_MONGO_USE_SSL: False
+
+EDXAPP_MYSQL_DB_NAME: 'edxapp'
+EDXAPP_MYSQL_USER: 'edxapp001'
+EDXAPP_MYSQL_USER_ADMIN: 'root'
+EDXAPP_MYSQL_PASSWORD: 'password'
+EDXAPP_MYSQL_PASSWORD_READ_ONLY: 'password'
+EDXAPP_MYSQL_PASSWORD_ADMIN: 'password'
+
+
+########## end DB users/passwords ##########
+
+########## 5. start Nginx and server resources ##########
+
+EDXAPP_LMS_NGINX_PORT: 80
+EDXAPP_LMS_SSL_NGINX_PORT: 48000
+EDXAPP_LMS_PREVIEW_NGINX_PORT: 18020
+EDXAPP_CMS_NGINX_PORT: 18010
+EDXAPP_CMS_SSL_NGINX_PORT: 48010
+
+NGINX_ENABLE_SSL: False
+#NGINX_REDIRECT_TO_HTTPS: False
+#NGINX_SSL_CERTIFICATE: 'ssl-cert-snakeoil.pem'
+#NGINX_SSL_KEY: 'ssl-cert-snakeoil.key'
+
+#CMS_HOSTNAME: '~^((stage|prod)-)?studio.*'
+#ECOMMERCE_HOSTNAME: '~^((stage|prod)-)?ecommerce.*'
+#PROGRAMS_HOSTNAME: '~^((stage|prod)-)?programs.*'
+
+# Set global htpasswd credentials
+COMMON_ENABLE_BASIC_AUTH: False
+#COMMON_HTPASSWD_USER: edx 
+#COMMON_HTPASSWD_PASS: edx 
+
+EDXAPP_WORKERS: 
+  lms: 1
+  cms: 1
+EDXAPP_CELERY_WORKERS:
+  - queue: low
+    service_variant: cms
+    concurrency: 1
+    monitor: True
+  - queue: default
+    service_variant: cms
+    concurrency: 1
+    monitor: True
+  - queue: high
+    service_variant: cms
+    concurrency: 1
+    monitor: True
+  - queue: low
+    service_variant: lms
+    concurrency: 1
+    monitor: True
+  - queue: default
+    service_variant: lms
+    concurrency: 1
+    monitor: True
+  - queue: high
+    service_variant: lms
+    concurrency: 1
+    monitor: True
+  - queue: high_mem
+    service_variant: lms
+    concurrency: 1
+    monitor: False
+    max_tasks_per_child: 1
+########## end Nginx and server resources ##########
+

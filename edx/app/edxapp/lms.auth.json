@@ -74,8 +74,8 @@
         "user": "edxapp"
     },
     "EDX_API_KEY": "",
-    "EMAIL_HOST_PASSWORD": "erik_river",
-    "EMAIL_HOST_USER": "Kpfp7eLt",
+    "EMAIL_HOST_PASSWORD": "Kpfp7eLt",
+    "EMAIL_HOST_USER": "erik_river",
     "GOOGLE_ANALYTICS_ACCOUNT": null,
     "GOOGLE_ANALYTICS_LINKEDIN": "",
     "MODULESTORE": {

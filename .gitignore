@@ -1,0 +1,81 @@
+# .gitignore for edx-platform.
+# There's a lot here, please try to keep it organized.
+
+### Python artifacts
+*.pyc
+
+### Virtualenv
+bin/
+include/
+lib/
+local/
+*.log
+pip-selfcheck.json
+
+### Sphinx documentation
+_build/
+
+### Editor and IDE artifacts
+*~
+*.swp
+*.orig
+/nbproject
+.idea/
+.redcar/
+codekit-config.json
+.pycharm_helpers/
+/_mac/*
+/IntelliLang.xml
+/conda_packages.xml
+/databaseSettings.xml
+/diff.xml
+/debugger.xml
+/editor.xml
+/ide.general.xml
+/inspection/Default.xml
+/other.xml
+/packages.xml
+/web-browsers.xml
+*.sublime-workspace
+
+### OS X artifacts
+*.DS_Store
+.AppleDouble
+:2e_*
+:2e#
+
+### Internationalization artifacts
+*.mo
+*.po
+*.prob
+*.dup
+!django.po
+!django.mo
+!djangojs.po
+!djangojs.mo
+conf/locale/en/LC_MESSAGES/*.mo
+conf/locale/fake*/LC_MESSAGES/*.po
+conf/locale/fake*/LC_MESSAGES/*.mo
+# this was a mistake in i18n_tools, now fixed.
+conf/locale/messages.mo
+
+### Static assets pipeline artifacts
+*.scssc
+lms/static/css/
+lms/static/certificates/css/
+cms/static/css/
+common/static/common/js/vendor/
+common/static/bundles
+webpack-stats.json
+
+### Styling generated from templates
+lms/static/sass/*.css
+lms/static/sass/*.css.map
+lms/static/certificates/sass/*.css
+lms/static/themed_sass/
+cms/static/css/
+cms/static/sass/*.css
+cms/static/sass/*.css.map
+cms/static/themed_sass/
+themes/**/css/*.css
+themes/**/css/discussion/*.css

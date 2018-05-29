@@ -3,13 +3,13 @@ kimetrics-edx-website
 =====================
 
 Repositorio **Temporal** de diversas configuraciones del 
-sitio de _Open edX_ para kimetrics.com
+sitio de *Open edX* para kimetrics.com
 
 
 Open edX LMS
 ============
 
-La dirección URL del _Open edX LMS_, es la siguiente:
+La dirección URL del **Open edX LMS**, es la siguiente:
 
 - http://ec2-54-152-79-203.compute-1.amazonaws.com:8000/
 
@@ -17,7 +17,7 @@ La dirección URL del _Open edX LMS_, es la siguiente:
 Open edX Studio
 ===============
 
-La dirección URL del _Open edX Studio_, es la siguiente:
+La dirección URL del **Open edX Studio**, es la siguiente:
 
 - http://ec2-54-152-79-203.compute-1.amazonaws.com:8000/studio
 

@@ -10,6 +10,7 @@
 
 ########## 1. global Open edX settings ##########
 
+# System
 COMMON_ENVIRONMENT: 'default_env'
 COMMON_DEPLOYMENT: 'default_deployment'
 
@@ -17,9 +18,11 @@ EDXAPP_LMS_BASE: "ec2-54-152-79-203.compute-1.amazonaws.com"
 EDXAPP_PREVIEW_LMS_BASE: ""
 EDXAPP_CMS_BASE: "localhost:18010"
 
+# Misc
 EDXAPP_LANGUAGE_CODE: 'es-419'
 EDXAPP_TIME_ZONE: 'America/Mexico_City'
 
+# edxapp
 EDXAPP_PLATFORM_NAME: 'Kimetrics - Smart field management - Cursos en linea'
 EDXAPP_STUDIO_NAME: 'Studio'
 EDXAPP_STUDIO_SHORT_NAME: 'Studio'
@@ -84,6 +87,8 @@ EDXAPP_AWS_STORAGE_BUCKET_NAME: 'edxuploads'
 EDXAPP_FILE_UPLOAD_STORAGE_PREFIX: 'submissions_attachments'
 
 # Dashboard URL, assumes that the insights role is installed locally
+# Set analytics url to an empty string to hide links to Insights on instructor dashboard.
+# For installations that include analytics, this should be set to the base Insights URL.
 EDXAPP_ANALYTICS_DASHBOARD_URL: ""
 
 EDXAPP_REGISTRATION_EXTRA_FIELDS:
@@ -103,7 +108,7 @@ EDXAPP_COMPREHENSIVE_THEME_DIR: ""
 EDXAPP_EMAIL_BACKEND: 'django.core.mail.backends.smtp.EmailBackend'
 EDXAPP_EMAIL_HOST: 'smtp.sendgrid.net'
 EDXAPP_EMAIL_PORT: 587
-EDXAPP_EMAIL_USE_TLS: False
+EDXAPP_EMAIL_USE_TLS: false
 EDXAPP_EMAIL_HOST_USER: 'erik_river'
 EDXAPP_EMAIL_HOST_PASSWORD: 'Kpfp7eLt'
 
@@ -131,6 +136,8 @@ EDXAPP_COMMENTS_SERVICE_KEY:  'password'
 
 EDXAPP_EDXAPP_SECRET_KEY: "DUMMY KEY CHANGE BEFORE GOING TO PRODUCTION"
 
+# Set YouTube API key to null to avoid YouTube XHR errors.
+# Can be overridden in extra settings with a valid API key.
 EDXAPP_YOUTUBE_API_KEY: "PUT_YOUR_API_KEY_HERE"
 
 EDXAPP_ZENDESK_USER: ""
@@ -210,10 +217,10 @@ NGINX_ENABLE_SSL: False
 #ECOMMERCE_HOSTNAME: '~^((stage|prod)-)?ecommerce.*'
 #PROGRAMS_HOSTNAME: '~^((stage|prod)-)?programs.*'
 
-# Set global htpasswd credentials
+# Set global htpasswd credentials for HTTP authentication
 COMMON_ENABLE_BASIC_AUTH: False
-#COMMON_HTPASSWD_USER: edx 
-#COMMON_HTPASSWD_PASS: edx 
+#COMMON_HTPASSWD_USER: 'SET ME' #edx
+#COMMON_HTPASSWD_PASS: 'SET ME' #edx
 
 EDXAPP_WORKERS: 
   lms: 1
